@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.4.1.min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width ,initial-scale=1 ,shrink-to-fit=no">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dde18f;
+        }
+        .link {
+            background-color: #242424;
+            min-height: 70px;
+            width: 100%;
+        }
+
+        .link-fixed {
+            position: fixed;
+            top: 0;
+            height:150px;
+        }
+
+        .link > ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .link > ul > li {
+            list-style: none;
+            float: left;
+            font-size: 20pt;
+        }
+
+        .link > ul > li > a {
+            text-decoration: none;
+            padding: 20px 35px;
+            display: block;
+            color: #e8e37d;
+        }
+
+        .link > ul > li > a:hover {
+            background-color: #3b3b3b;
+        }
+
+        .link > ul > li > div {
+            background-color: #3b3b3b;
+            border: 1px solid #545454;
+            position: absolute;
+            width: 100%;
+            min-height: 400px;
+            display: none;
+            left: 0;
+        }
+
+        .link > ul > li > a:hover + div, .link > ul > li > div:hover {
+            display: block;
+        }
+
+        .col-4 {
+            width: 25%;
+            float: left;
+            padding-left: 15px;
+            padding-right: 15px;
+            box-sizing: border-box;
+        }
+
+        .col-4 > ul > li > a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .pic {
+            text-align: center;
+            margin-right: 142px;
+            margin-left: 142px;
+        }
+
+        .box1 {
+            border: 2px solid #e8e37d;
+            width: 271px;
+            height: 200px;
+            text-align: center;
+            background-color: #242424;
+            float: left;
+            margin-left: 274px;
+            margin-top: 10px;
+        }
+
+        .box2 {
+            margin-left: 27px;
+            margin-top: 10px;
+            width: 497px;
+            height: 200px;
+            text-align: center;
+            border: 2px solid #e8e37d;
+            background-color: #383838;
+            float: left;
+        }
+
+        .box3 {
+            margin-left: 273px;
+            width: 615px;
+            height: 200px;
+            text-align: center;
+            border: 2px solid #e8e37d;
+            background-color: #4c4c4c;
+            float: left;
+            margin-top: 10px;
+        }
+
+        .box4 {
+            width: 150px;
+            height: 200px;
+            text-align: center;
+            border: 2px solid #e8e37d;
+            background-color: #5a5a5a;
+            float: left;
+            margin-left: 31px;
+            margin-top: 10px;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        .box5 {
+            width: 246px;
+            height: 200px;
+            background-color: #6a6a6a;
+            float: left;
+            margin-left: 272px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #e8e37d;
+        }
+
+        .box6 {
+            width: 246px;
+            height: 200px;
+            background-color: #6a6a6a;
+            float: left;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #e8e37d;
+        }
+
+        .box7 {
+            width: 246px;
+            height: 200px;
+            background-color: #6a6a6a;
+            float: left;
+            margin-top: 10px;
+            border: 1px solid #e8e37d;
+            padding: 10px;
+        }
+
+        .login-box {
+            width: 500px;
+            height: 300px;
+            background-color: #4b4b4b;
+            border: 1px solid rgba(254, 238, 3, 0.67);
+            position: fixed;
+            display: none;
+            top: 200px;
+            left: 28%;
+            transition: 0.5s all linear;
+            box-shadow: 3px 3px 10px 0 rgb(91, 91, 91);
+        }
+
+        .login-box-open {
+            display: block;
+        }
+
+        .login-box-open {
+            opacity: 1;
+        }
+
+        .login-box .header {
+            padding: 15px;
+            border-bottom: 1px solid #3b3b3b;
+        }
+
+        .img {
+            margin: -4px;
+        }
+
+        #movetotop {
+            width: 60px;
+            height: 60px;
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f9c667+0,f79621+100;Orange+3D+%234 */
+            background: rgb(249,198,103); /* Old browsers */
+            background: -moz-radial-gradient(center, ellipse cover,  rgb(249,198,103) 0%, rgb(247,150,33) 100%); /* FF3.6-15 */
+            background: -webkit-radial-gradient(center, ellipse cover,  rgb(249,198,103) 0%,rgb(247,150,33) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: radial-gradient(ellipse at center,  rgb(249,198,103) 0%,rgb(247,150,33) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c667', endColorstr='#f79621',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+            float: right;
+            position: fixed;
+            right: 50px;
+            bottom: -60px;
+            border-radius: 50%;
+            box-shadow: 1px 1px 7px 0 #2f2f2f;
+            cursor: pointer;
+            transition: 0.5s all ease;
+            /* display: none; */
+        }
+        #moveimg{
+            width:50px;
+            height:50px;
+            padding: 3px;
+        }
+
+        #movetotop.rised {
+            /* display: block; */
+            bottom: 50px;
+        }
+
+        #movetotop:hover {
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fefcea+0,f1da36+100;Gold+3D */
+            background: rgb(254,252,234); /* Old browsers */
+            background: -moz-radial-gradient(center, ellipse cover,  rgb(254,252,234) 0%, rgb(241,218,54) 100%); /* FF3.6-15 */
+            background: -webkit-radial-gradient(center, ellipse cover,  rgb(254,252,234) 0%,rgb(241,218,54) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: radial-gradient(ellipse at center,  rgb(254,252,234) 0%,rgb(241,218,54) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+        }
+
+        .user {
+            text-align: center;
+            font-size:15pt;
+            /*  margin: 20px 15px;
+             padding: 20px 15px;*/
+            color: #ffffff;
+        }
+
+        #u, #p, #a {
+            background-color: rgb(251, 255, 168);
+            border: 1px solid #242424;
+            padding: 5px;
+            margin: 10px;
+        }
+        #imglogo{
+            display: none;
+            float: left;
+           /* width: 100px; */
+            height: 150px;
+        }
+        #imglogo.rised{
+            display: block;
+        }
+
+        @media screen and (max-width:400px ) {
+            .mb-hidden{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<img class="img" src="mm%201.png" height="200" id="logo">
+<nav class="link " id="mnMain">
+    <img class="img" src="mm%201.png" id="imglogo">
+    <ul style="float: left">
+        <li>
+            <a href="a.html"> Mobile </a>
+            <div>
+                <div class="col-4 text-center">
+                    <img src="mobile.jpg" width="300" height="200">
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">apple</a></li>
+                        <li><a href="bb.html">samsung</a></li>
+                        <li><a href="cc.html">huawei</a></li>
+                        <li><a href="dd.html">Htc</a></li>
+                        <li><a href="dd.html">LG</a></li>
+                        <li><a href="dd.html">NOKIA</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">GLX</a></li>
+                        <li><a href="bb.html">Motorola</a></li>
+                        <li><a href="cc.html">BlackBerry</a></li>
+                        <li><a href="dd.html">GooGle</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Microsoft</a></li>
+                        <li><a href="bb.html">sony Ericsson</a></li>
+                        <li><a href="cc.html">Amazon</a></li>
+                        <li><a href="dd.html">Dell</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="b.html"> Laptop </a>
+            <div>
+                <div class="col-4">
+                    <img src="pc.jpg" width="300" height="200">
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">MAC</a></li>
+                        <li><a href="bb.html">ACER</a></li>
+                        <li><a href="cc.html">ASUS</a></li>
+                        <li><a href="dd.html">HP</a></li>
+                        <li><a href="dd.html">Lenovo</a></li>
+                        <li><a href="dd.html">Dell</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Microsoft</a></li>
+                        <li><a href="bb.html">Sony</a></li>
+                        <li><a href="cc.html">SamSung</a></li>
+                        <li><a href="dd.html">LG</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">A</a></li>
+                        <li><a href="bb.html">B</a></li>
+                        <li><a href="cc.html">C</a></li>
+                        <li><a href="dd.html">D</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="c.html"> TABLET </a>
+            <div>
+                <div class="col-4">
+                    <img src="tablet.jpg" width="300" height="200">
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Apple</a></li>
+                        <li><a href="bb.html">Samsung</a></li>
+                        <li><a href="cc.html">LENOVO</a></li>
+                        <li><a href="dd.html">Microsoft</a></li>
+                        <li><a href="dd.html">LG</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Huawei</a></li>
+                        <li><a href="bb.html">Asus</a></li>
+                        <li><a href="cc.html">Acer</a></li>
+                        <li><a href="dd.html">HP</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Dell</a></li>
+                        <li><a href="bb.html">Sony</a></li>
+                        <li><a href="cc.html">Nokia</a></li>
+                        <li><a href="dd.html">Amazon</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="c.html"> Camera</a>
+            <div>
+                <div class="col-4">
+                    <img src="camera.jpg" width="300" height="200">
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Samsung</a></li>
+                        <li><a href="bb.html">Sony</a></li>
+                        <li><a href="cc.html">Canon</a></li>
+                        <li><a href="dd.html">Nikon</a></li>
+                        <li><a href="dd.html">Panasonic</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Polaroid</a></li>
+                        <li><a href="bb.html">Vicoman</a></li>
+                        <li><a href="cc.html">Duracell</a></li>
+                        <li><a href="dd.html">GoPro</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="aa.html">Celestron</a></li>
+                        <li><a href="bb.html">FujiFilm</a></li>
+                        <li><a href="cc.html">c</a></li>
+                        <li><a href="dd.html">D</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul style="float: right">
+        <li>
+            <a style="cursor: pointer" id="loginopener"> Login </a>
+        </li>
+    </ul>
+</nav>
+<div class="login-box" id="lgb">
+    <div class="header">
+        <span class="logincloser" style="float:right;cursor:pointer"> X </span>
+    </div>
+        <div class="user">
+            <tr>
+                <th>- username</th>
+                <td><input id="u" type="text" name="username" placeholder="enter your username"></td>
+            </tr>
+            <br>
+            <tr>
+                <th>- password</th>
+                <td><input id="p" type="text" name="password" placeholder="password"></td>
+            </tr>
+            <br>
+            <tr>
+                <th>- age</th>
+                <td><input id="a" type="number" name="age" placeholder="enter your age"></td>
+            </tr>
+            <br>
+            <tr>
+                <td><select name="city">
+                    <option> Tehran</option>
+                    <option> Alborz</option>
+                    <option> Esfahan</option>
+                    <option> yazd</option>
+                    <option> Qom</option>
+                    <option> Qazvin</option>
+                </select>
+                </td>
+            </tr>
+        </div>
+
+    <div style="clear: both"></div>
+</div>
+<div class="pic mb-hidden">
+    <img src="elec3.jpg" width="800px" min-height="400px">
+</div>
+<div class="box1">
+
+</div>
+<div class="box2">
+
+</div>
+<div class="box3">
+
+
+</div>
+<div class="box4">
+
+</div>
+<div class="clearfix"></div>
+<div class="box5">
+    - MOBILE -
+    <br>
+    A mobile phone, cell phone, cellphone, or hand phone, sometimes shortened to simply mobile, cell or just phone, is a
+    portable telephone that can make and receive calls over a radio frequency link while the user is moving within a
+    telephone service area
+</div>
+<div class="box6">
+    - LAPTOP -
+    <br>
+    A laptop computer (also shortened to just laptop; or called a notebook computer) is a small, portable personal
+    computer (PC) with a "clamshell" form factor, typically having a thin LCD or LED computer screen mounted on the
+    inside of the upper lid of the clamshell and an alphanumeric keyboard on the inside of the lower lid
+</div>
+<div class="box7">
+    - TABLET -
+    <br>
+    A tablet computer, commonly shortened to tablet, is a mobile device, typically with a mobile operating system and
+    touchscreen display processing circuitry, and a rechargeable battery in a single thin, flat package.
+</div>
+<a id="movetotop"> <img src="hand.png" id="moveimg"> </a>
+<script>
+    $('.logincloser').click(function () {
+        $('#lgb').removeClass("login-box-open");
+    });
+    $('#loginopener').click(function () {
+        $('#lgb').toggleClass("login-box-open");
+    });
+    $(document).on('scroll', function () {
+        var top = $(window).scrollTop();
+        if (top >= 230) {
+            $('#mnMain').addClass('link-fixed');
+            $('#movetotop').addClass('rised');
+            $('#imglogo').fadeIn(100);
+        } else {
+            $('#mnMain').removeClass('link-fixed');
+            $('#movetotop').removeClass('rised');
+            $('#imglogo').fadeOut(100);
+        }
+    });
+    $('#movetotop').click(function () {
+        $('html,body')
+            .animate({
+                scrollTop:0
+            },2000)
+    });
+    var top = $(window).scrollTop();
+
+
+</script>
+</body>
+</html>

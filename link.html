@@ -1,0 +1,200 @@
+<html>
+
+<head>
+    <style>
+     body{
+         margin: 0;
+         padding:0;
+     }
+     #link{
+         width: 100%;
+         min-height: 65px;
+         background-color: maroon;
+     }
+     #link > ul{
+         margin: 0;
+         padding:0;
+     }
+     #link > ul > li{
+         list-style: none;
+         float: left;
+     }
+     #link > ul > li > a {
+         text-decoration: none;
+         color: azure;
+         font-size: 15pt;
+         padding: 20px 20px;
+         display: block;
+         margin-right: 15px;
+     }
+     #link > ul > li > a:hover{
+         background-color:#db1414;
+         
+     }
+     #link > ul > li > div > ul > li{
+         margin:0;
+         padding:0;
+         visibility: hidden;
+         width: 0;
+         height: 0;
+         opacity: 1;
+         position: absolute;
+         float: left;
+         background-color:#db1414;
+         overflow: hidden;
+         transition: 0.5s all linear;
+
+     }
+     #link > ul > li > div > ul > li{
+         list-style: none;
+     }
+     #link > ul > li > div > ul > li > a:hover{
+         background-color: #cf4c4c;
+        
+     }
+     #link > ul > li > div{
+       background-color:#db1414;
+       border: 1px solid #fff;
+       position: absolute;
+       width:100%;
+       min-height: 400px;
+       display: none;
+       left: 0;
+     }
+     #link > ul > li > a:hover + div , #link > ul > li > div:hover{
+            display: block;
+        }
+        .col-4{
+            width: 25%;
+            font: 25pt;
+            padding-right: 15px;
+            padding-left: 15px;
+            float: left;
+            box-sizing: border-box;
+        }
+
+  
+
+
+    </style>
+
+
+</head>
+<body>
+    <img src="link.jpg">
+ <nav id="link">
+ 
+         <ul>
+             <li><a href="aa.html">mobile</a>
+                <div>
+           <div class=" col-4 text-center"> 
+               <img src="mobile.jpg" width="350" height="200">
+               
+        </div>
+           <div class=" col-4">  
+               <ul> 
+               <li> <a href="aa"> A </a></li>
+               <li> <a href="aa"> B </a></li>
+               <li> <a href="aa"> C </a></li>
+               <li> <a href="aa"> D </a></li>
+               </ul>
+           </div>
+
+           <div class=" col-4">
+                <ul> 
+                        <li> <a href="aa"> iphone</a></li>
+                        <li> <a href="aa"> samsung </a></li>
+                        <li> <a href="aa"> LG </a></li>
+                        <li> <a href="aa"> Dell </a></li>
+                        </ul>
+        </div>
+           <div class=" col-4"> 
+                <ul> 
+                        <li> <a href="aa"> A </a></li>
+                        <li> <a href="aa"> B </a></li>
+                        <li> <a href="aa"> C </a></li>
+                        <li> <a href="aa"> D </a></li>
+                        </ul>
+
+           </div>
+
+        </div>
+        <li>
+            <a href="bb.html">pc</a>
+            <div>
+                    <div class=" col-4 text-center"> 
+                        <img src="pc.jpg" width="350" height="200">
+                        
+                 </div>
+                    <div class=" col-4">  
+                        <ul> 
+                        <li> <a href="aa"> acer </a></li>
+                        <li> <a href="aa"> asus </a></li>
+                        <li> <a href="aa"> mac </a></li>
+                        <li> <a href="aa"> Dell </a></li>
+                        </ul>
+                    </div>
+         
+                    <div class=" col-4">
+                         <ul> 
+                                 <li> <a href="aa"> A </a></li>
+                                 <li> <a href="aa"> B </a></li>
+                                 <li> <a href="aa"> C </a></li>
+                                 <li> <a href="aa"> D </a></li>
+                                 </ul>
+                 </div>
+                    <div class=" col-4"> 
+                         <ul> 
+                                 <li> <a href="aa"> A </a></li>
+                                 <li> <a href="aa"> B </a></li>
+                                 <li> <a href="aa"> C </a></li>
+                                 <li> <a href="aa"> D </a></li>
+                                 </ul>
+         
+                    </div>
+         
+                 </div>
+
+        </li>
+        <li> <a href="cc.html"> electronic</a>
+            <div>ss
+                    <div class=" col-4 text-center"> 
+                        <img src="ax.jpg" width="150">
+                        
+                 </div>
+                    <div class=" col-4">  
+                        <ul> 
+                        <li> <a href="aa"> A </a></li>
+                        <li> <a href="aa"> B </a></li>
+                        <li> <a href="aa"> C </a></li>
+                        <li> <a href="aa"> D </a></li>
+                        </ul>
+                    </div>
+         
+                    <div class=" col-4">
+                         <ul> 
+                                 <li> <a href="aa"> A </a></li>
+                                 <li> <a href="aa"> B </a></li>
+                                 <li> <a href="aa"> C </a></li>
+                                 <li> <a href="aa"> D </a></li>
+                                 </ul>
+                 </div>
+                    <div class=" col-4"> 
+                         <ul> 
+                                 <li> <a href="aa"> A </a></li>
+                                 <li> <a href="aa"> B </a></li>
+                                 <li> <a href="aa"> C </a></li>
+                                 <li> <a href="aa"> D </a></li>
+                                 </ul>
+         
+                    </div>
+         
+                 </div>
+        </li>
+    </ul>
+ </nav>
+
+
+
+</body>
+</html>
